@@ -53,10 +53,7 @@ public class TestMMS {
 						{
 							System.out.println(it.next());
 						}
-						
-						LocalDate l = LocalDate.parse("2023-05-06");
-						System.out.println(l.plusMonths(6));
-						
+						
 						
 						break;
 						
