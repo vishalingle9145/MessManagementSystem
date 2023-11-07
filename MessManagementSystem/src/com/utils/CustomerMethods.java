@@ -54,7 +54,7 @@ public class CustomerMethods {
 	}
 	
 //	remove user according to plan
-	public static void removeUserByPlan(List<Customer> list)
+	public static void removeUserByPlanExpired(List<Customer> list)
 	{
 		
 		list.removeIf(p->p.getPlanEndDate().isBefore(LocalDate.now()));
@@ -70,4 +70,13 @@ public class CustomerMethods {
 		}
 		);
 	}
+	
+//	Customers registered in january
+	public static List<Customer> registeredInJanuary(List<Customer> list)
+	{
+		list.stream().forEach(p->p.getRegistrationDate().getMonthValue());
+		
+		return list;
+	}
+	
 }

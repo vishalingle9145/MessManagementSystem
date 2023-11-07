@@ -26,8 +26,13 @@ public class TestMMS {
 			boolean exit = false;
 
 			while (!exit) {
-				System.out.println("\n1. SIGN UP 2. SIGN IN 3. Show All 4. Change Password 5. Sort Data  8. Unsubscribe Customer");
+				System.out.println("\n1. SIGN UP 2. SIGN IN 3. Show All 4. Change Password 5. Sort Data");
 				System.out.println("6. Unsubscribe customer by plan(month wise (1, 3, 6, 12))");
+				System.out.println("7. Make FirstName Capitalize");
+				System.out.println("8. Customers registered in January");
+				System.out.println("9. Display Monthly Plan Customers Count");
+				System.out.println("10. Search By Address(City)");
+				System.out.println("11. Give 20% Discount for YEARLY plan");
 				try {
 
 					switch (sc.nextInt()) {
@@ -52,7 +57,6 @@ public class TestMMS {
 						{
 							System.out.println(it.next());
 						}
-						
 						
 						break;
 						
@@ -62,7 +66,6 @@ public class TestMMS {
 						break;
 						
 					case 5:
-						
 						System.out.println("1. Sort by FirstName");
 						System.out.println("2. Sort by Mess Plan");
 						System.out.println("3. Sort by Registration Date");
@@ -90,13 +93,18 @@ public class TestMMS {
 						break;
 						
 					case 6:
-						removeUserByPlan(customer);
+						removeUserByPlanExpired(customer);
 						System.out.println("Expired Plan Customers removed...! ");
 						break;
 						
 					case 7:
 						changeFirstName(customer);
+						System.out.println("First name capitalized...!");
 						break;
+					
+					case 8:
+						registeredInJanuary(customer);
+						System.out.println("-------------");
 					}
 
 				} catch (Exception e) {
