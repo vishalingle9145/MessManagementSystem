@@ -26,9 +26,8 @@ public class TestMMS {
 			boolean exit = false;
 
 			while (!exit) {
-				System.out.println("\n1. SIGN UP 2. SIGN IN 3. Show All 4. Change Password 5. Sort by FirstName\n"
-						+ "6. Sort by Mess Plan 7. Sort by Registration Date 8. Unsubscribe Customer");
-
+				System.out.println("\n1. SIGN UP 2. SIGN IN 3. Show All 4. Change Password 5. Sort Data  8. Unsubscribe Customer");
+				System.out.println("6. Unsubscribe customer by plan(month wise (1, 3, 6, 12))");
 				try {
 
 					switch (sc.nextInt()) {
@@ -63,19 +62,40 @@ public class TestMMS {
 						break;
 						
 					case 5:
-						Collections.sort(customer, new SortByFirstName());
-						System.out.println("Data Sorted By First Name...!");
+						
+						System.out.println("1. Sort by FirstName");
+						System.out.println("2. Sort by Mess Plan");
+						System.out.println("3. Sort by Registration Date");
+						int ch = sc.nextInt();
+						if(ch == 1)
+						{
+							Collections.sort(customer, new SortByFirstName());
+							System.out.println("Data Sorted By First Name...!");
+						}
+						else if(ch == 2)
+						{
+							Collections.sort(customer, new SortByMessPlan());
+							System.out.println("Data Sorted By Mess Plan...!");
+						}
+						else if(ch == 3)
+						{
+							Collections.sort(customer, new SortByRegistrationDate());
+							System.out.println("Data Sorted By Registration Date...!");
+						}
+						else
+						{
+							System.out.println("Invalid Choice...!");
+						}
 						
 						break;
 						
 					case 6:
-						Collections.sort(customer, new SortByMessPlan());
-						System.out.println("Data Sorted By Mess Plan...!");
+						removeUserByPlan(customer);
+						System.out.println("Expired Plan Customers removed...! ");
 						break;
 						
 					case 7:
-						Collections.sort(customer, new SortByRegistrationDate());
-						System.out.println("Data Sorted By Registration Date...!");
+						changeFirstName(customer);
 						break;
 					}
 
